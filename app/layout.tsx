@@ -9,9 +9,9 @@ const spaceGrotesk = Space_Grotesk({ subsets: ['latin'], variable: '--font-space
 const jetbrainsMono = JetBrains_Mono({ subsets: ['latin'], variable: '--font-jetbrains-mono' })
 
 export const metadata: Metadata = {
-  title: 'RGVPeptides — Ascending the Valley',
-  description: 'Premium peptide research products for laboratory use. Third-party tested, USA synthesized, cold-chain shipped. Strictly for research purposes only.',
-  keywords: ['peptides', 'research', 'laboratory', 'biotech', 'RGVPeptides'],
+  title: 'RGVPeptides | High-Purity Retatrutide & Tirzepatide Research Compounds',
+  description: 'Premium laboratory-grade research peptides synthesized in the USA. Specializing in high-purity Retatrutide and Tirzepatide with >99% verified purity for clinical research and investigation.',
+  keywords: ['peptide research', 'USA synthesized', 'metabolic research compounds', 'Retatrutide', 'Tirzepatide', 'laboratory-grade peptides', 'clinical research', 'high-purity peptides', 'BPC-157', 'Ipamorelin', 'CJC-1295', 'TB-500'],
 }
 
 export default function RootLayout({

@@ -12,6 +12,12 @@ export interface Product {
     label: string
     value: string
   }[]
+  scientificSpecs?: {
+    aminoAcidSequence?: string
+    molecularFormula?: string
+    casNumber?: string
+    molecularWeight?: string
+  }
   researchApplications: string[]
   storageConditions: string
   shelfLife: string
@@ -89,6 +95,12 @@ export const products: Product[] = [
       { label: "Format", value: "Lyophilized powder" },
       { label: "Solubility", value: "Sterile water, PBS" },
     ],
+    scientificSpecs: {
+      aminoAcidSequence: "Modified 39-AA peptide sequence",
+      molecularFormula: "C₂₂₁H₃₅₀N₅₆O₆₇S",
+      casNumber: "2374560-18-9",
+      molecularWeight: "5145.74 g/mol",
+    },
     researchApplications: [
       "Metabolic pathway investigation",
       "Multi-receptor agonism studies",
@@ -171,6 +183,12 @@ export const products: Product[] = [
       { label: "Format", value: "Lyophilized powder" },
       { label: "Solubility", value: "Sterile water, PBS buffer" },
     ],
+    scientificSpecs: {
+      aminoAcidSequence: "YAibEGTFTSDYSIAMLDLLAQAGAFVGGLYSDGGPQEQPEVADN-PEG-C20 dicarboxylic acid",
+      molecularFormula: "C₂₂₅H₃₄₈N₆₀O₇₈S",
+      casNumber: "2023788-19-2",
+      molecularWeight: "4813.53 g/mol",
+    },
     researchApplications: [
       "Dual incretin receptor activation studies",
       "Glucose metabolism research",

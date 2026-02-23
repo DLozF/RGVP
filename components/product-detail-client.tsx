@@ -2,6 +2,7 @@
 
 import { useState } from "react"
 import Link from "next/link"
+import Image from "next/image"
 import { 
   ShieldCheck, 
   FileDown, 
@@ -14,7 +15,11 @@ import {
   ExternalLink,
   Minus,
   Plus,
-  ShoppingCart
+  ShoppingCart,
+  Dna,
+  Atom,
+  Hash,
+  Scale
 } from "lucide-react"
 import { useCart } from "@/contexts/cart-context"
 import type { Product } from "@/lib/products"
@@ -75,10 +80,12 @@ export default function ProductDetailClient({ product }: ProductDetailClientProp
         <div className="relative">
           <div className="sticky top-28">
             <div className="relative aspect-square overflow-hidden rounded-2xl border border-navy-mid bg-alabaster/5">
-              <img
+              <Image
                 src={product.image}
                 alt={`${product.name} - Research peptide vial`}
-                className="h-full w-full object-cover"
+                fill
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                className="object-cover"
               />
               {/* Purity Badge */}
               <div className="absolute right-4 top-4">
@@ -153,6 +160,77 @@ export default function ProductDetailClient({ product }: ProductDetailClientProp
               <p className="mt-1 text-sm font-semibold text-alabaster">Lyophilized</p>
             </div>
           </div>
+
+          {/* Scientific Specifications - For Retatrutide and Tirzepatide */}
+          {product.scientificSpecs && (
+            <div className="mt-8">
+              <h3 className="mb-4 font-serif text-lg font-bold text-alabaster">
+                Scientific Specifications
+              </h3>
+              <div className="grid gap-3 sm:grid-cols-2">
+                {product.scientificSpecs.aminoAcidSequence && (
+                  <div className="flex items-start gap-3 rounded-lg border border-crimson/20 bg-crimson/5 p-4">
+                    <div className="rounded-full bg-crimson/10 p-2">
+                      <Dna className="h-4 w-4 text-crimson" />
+                    </div>
+                    <div>
+                      <p className="text-xs font-medium uppercase tracking-wider text-muted-foreground">
+                        Amino Acid Sequence
+                      </p>
+                      <p className="mt-1 font-mono text-xs text-alabaster">
+                        {product.scientificSpecs.aminoAcidSequence}
+                      </p>
+                    </div>
+                  </div>
+                )}
+                {product.scientificSpecs.molecularFormula && (
+                  <div className="flex items-start gap-3 rounded-lg border border-crimson/20 bg-crimson/5 p-4">
+                    <div className="rounded-full bg-crimson/10 p-2">
+                      <Atom className="h-4 w-4 text-crimson" />
+                    </div>
+                    <div>
+                      <p className="text-xs font-medium uppercase tracking-wider text-muted-foreground">
+                        Molecular Formula
+                      </p>
+                      <p className="mt-1 font-mono text-sm text-alabaster">
+                        {product.scientificSpecs.molecularFormula}
+                      </p>
+                    </div>
+                  </div>
+                )}
+                {product.scientificSpecs.casNumber && (
+                  <div className="flex items-start gap-3 rounded-lg border border-crimson/20 bg-crimson/5 p-4">
+                    <div className="rounded-full bg-crimson/10 p-2">
+                      <Hash className="h-4 w-4 text-crimson" />
+                    </div>
+                    <div>
+                      <p className="text-xs font-medium uppercase tracking-wider text-muted-foreground">
+                        CAS Number
+                      </p>
+                      <p className="mt-1 font-mono text-sm text-alabaster">
+                        {product.scientificSpecs.casNumber}
+                      </p>
+                    </div>
+                  </div>
+                )}
+                {product.scientificSpecs.molecularWeight && (
+                  <div className="flex items-start gap-3 rounded-lg border border-crimson/20 bg-crimson/5 p-4">
+                    <div className="rounded-full bg-crimson/10 p-2">
+                      <Scale className="h-4 w-4 text-crimson" />
+                    </div>
+                    <div>
+                      <p className="text-xs font-medium uppercase tracking-wider text-muted-foreground">
+                        Molecular Weight
+                      </p>
+                      <p className="mt-1 font-mono text-sm text-alabaster">
+                        {product.scientificSpecs.molecularWeight}
+                      </p>
+                    </div>
+                  </div>
+                )}
+              </div>
+            </div>
+          )}
 
           {/* CTA Buttons */}
           <div className="mt-8 flex flex-wrap items-center gap-4">

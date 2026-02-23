@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from "react"
 import Link from "next/link"
+import Image from "next/image"
 import { ShieldCheck, FileDown, FlaskConical } from "lucide-react"
 import { products } from "@/lib/products"
 
@@ -54,10 +55,12 @@ export default function ProductGrid() {
             >
               {/* Product Image */}
               <div className="relative aspect-square overflow-hidden rounded-t-xl bg-alabaster/5">
-                <img
+                <Image
                   src={product.image}
                   alt={`${product.name} - Research peptide vial`}
-                  className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                  fill
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  className="object-cover transition-transform duration-300 group-hover:scale-105"
                 />
                 {/* Purity Badge Overlay */}
                 <div className="absolute right-3 top-3">

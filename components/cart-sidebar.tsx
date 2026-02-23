@@ -3,6 +3,7 @@
 import { useCart } from "@/contexts/cart-context"
 import { X, Minus, Plus, Trash2, ShoppingCart, CheckCircle } from "lucide-react"
 import Link from "next/link"
+import Image from "next/image"
 import { useEffect } from "react"
 
 export default function CartSidebar() {
@@ -81,10 +82,12 @@ export default function CartSidebar() {
                         onClick={() => setIsCartOpen(false)}
                         className="relative h-20 w-20 flex-shrink-0 overflow-hidden rounded-lg border border-navy-mid bg-alabaster/5"
                       >
-                        <img
+                        <Image
                           src={item.product.image}
                           alt={item.product.name}
-                          className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                          fill
+                          sizes="80px"
+                          className="object-cover transition-transform duration-300 group-hover:scale-105"
                         />
                       </Link>
 
@@ -136,9 +139,9 @@ export default function CartSidebar() {
             )}
           </div>
 
-          {/* Footer */}
+          {/* Sticky Footer - Always visible on mobile */}
           {items.length > 0 && (
-            <div className="border-t border-navy-mid bg-navy-light/50 p-6">
+            <div className="sticky bottom-0 border-t border-navy-mid bg-navy p-6">
               <div className="mb-4 rounded-lg border border-chart-1/20 bg-chart-1/5 p-3">
                 <div className="flex items-start gap-2">
                   <CheckCircle className="mt-0.5 h-4 w-4 flex-shrink-0 text-chart-1" />
