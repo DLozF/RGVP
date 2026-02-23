@@ -22,7 +22,7 @@ export default function PromoBanner() {
   if (!isVisible) return null
 
   return (
-    <div className="relative bg-white py-2 text-center text-sm">
+    <div className="relative bg-white py-1 text-center text-sm">
       <p className="text-navy">
         <span className="font-semibold text-crimson">Free Shipping</span>{" "}
         on orders over <span className="font-semibold text-crimson">$100</span> within the RGV

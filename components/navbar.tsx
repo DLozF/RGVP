@@ -29,14 +29,14 @@ export default function Navbar() {
           : "bg-[#0a192f]/70 backdrop-blur-md"
           }`}
       >
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-3">
-          <a href="/" className="flex items-center gap-4">
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-1.5">
+          <a href="/" className="flex items-center gap-0">
             <img
               src="/images/logo.png"
               alt="RGVPeptides logo"
-              className="h-16 w-auto object-contain"
+              className="h-12 w-auto object-contain"
             />
-            <span className="font-serif text-xl font-bold tracking-tight text-alabaster">
+            <span className="-ml-1 font-serif text-xl font-bold tracking-tight text-alabaster">
               RGV<span className="text-crimson">Peptides</span>
             </span>
           </a>
