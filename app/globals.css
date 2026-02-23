@@ -1,0 +1,130 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-sans: var(--font-inter), sans-serif;
+  --font-serif: var(--font-space-grotesk), sans-serif;
+  --font-mono: var(--font-jetbrains-mono), monospace;
+
+  --color-background: #001E3C;
+  --color-foreground: #F8FAFC;
+  --color-card: #F8FAFC;
+  --color-card-foreground: #001E3C;
+  --color-popover: #F8FAFC;
+  --color-popover-foreground: #001E3C;
+  --color-primary: #001E3C;
+  --color-primary-foreground: #F8FAFC;
+  --color-secondary: #F8FAFC;
+  --color-secondary-foreground: #001E3C;
+  --color-muted: #0A2A4A;
+  --color-muted-foreground: #94A3B8;
+  --color-accent: #E11D48;
+  --color-accent-foreground: #FFFFFF;
+  --color-destructive: #E11D48;
+  --color-destructive-foreground: #FFFFFF;
+  --color-border: #1E3A5F;
+  --color-input: #1E3A5F;
+  --color-ring: #E11D48;
+  --color-chart-1: #3B82F6;
+  --color-chart-2: #E11D48;
+  --color-chart-3: #10B981;
+  --color-chart-4: #F59E0B;
+  --color-chart-5: #8B5CF6;
+
+  --color-navy: #001E3C;
+  --color-navy-light: #0A2A4A;
+  --color-navy-mid: #1E3A5F;
+  --color-alabaster: #F8FAFC;
+  --color-crimson: #E11D48;
+  --color-crimson-dark: #BE123C;
+
+  --radius-sm: 0.225rem;
+  --radius-md: 0.425rem;
+  --radius-lg: 0.625rem;
+  --radius-xl: 1.025rem;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Pulse animation for CTA buttons */
+@keyframes pulse-crimson {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(225, 29, 72, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 0 10px rgba(225, 29, 72, 0);
+  }
+}
+
+.animate-pulse-crimson {
+  animation: pulse-crimson 2s ease-in-out infinite;
+}
+
+/* Typewriter effect */
+@keyframes typewriter {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent; }
+  50% { border-color: #E11D48; }
+}
+
+.typewriter-text {
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 3px solid #E11D48;
+  animation: typewriter 2.5s steps(22, end) forwards, blink-caret 0.75s step-end infinite;
+}
+
+/* Reveal on scroll */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Molecular glow */
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotateY(0deg); }
+  50% { transform: translateY(-15px) rotateY(10deg); }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes orbit {
+  from { transform: rotate(0deg) translateX(60px) rotate(0deg); }
+  to { transform: rotate(360deg) translateX(60px) rotate(-360deg); }
+}
+
+.animate-orbit {
+  animation: orbit 8s linear infinite;
+}
+
+@keyframes orbit-reverse {
+  from { transform: rotate(0deg) translateX(80px) rotate(0deg); }
+  to { transform: rotate(-360deg) translateX(80px) rotate(360deg); }
+}
+
+.animate-orbit-reverse {
+  animation: orbit-reverse 12s linear infinite;
+}
+
+
