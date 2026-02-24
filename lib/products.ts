@@ -4,6 +4,7 @@ export interface Product {
   category: string
   weight: string
   purity: string
+  price: number
   description: string
   image: string
   coa: string | null
@@ -31,6 +32,7 @@ export const products: Product[] = [
     category: "Pentadecapeptide",
     weight: "1503.74 g/mol",
     purity: "99.8%",
+    price: 60,
     description: "A 15-amino acid peptide fragment derived from human gastric juice protein for laboratory research.",
     image: "/images/products/bpc-157.jpeg",
     coa: "/images/coa/bpc-157-coa.png",
@@ -58,6 +60,7 @@ export const products: Product[] = [
     category: "Triple Hormone Receptor Agonist",
     weight: "5145.74 g/mol",
     purity: "99.8%",
+    price: 75,
     description: "A synthetic peptide that targets GIP, GLP-1, and glucagon receptors for investigative metabolic research.",
     image: "/images/products/retatrutide.jpeg",
     coa: "/images/coa/retatrutide-coa.png",
@@ -91,6 +94,7 @@ export const products: Product[] = [
     category: "Copper Peptide Complex",
     weight: "742.29 g/mol",
     purity: "99.8%",
+    price: 50,
     description: "Copper peptide complex with glycine, histidine, and lysine amino acids for tissue regeneration and wound healing research.",
     image: "/images/products/ghk-cu.jpg",
     coa: null,
@@ -124,6 +128,7 @@ export const products: Product[] = [
     category: "Growth Hormone Secretagogue",
     weight: "711.85 g/mol",
     purity: "99.9%",
+    price: 65,
     description: "Selective pentapeptide ghrelin receptor agonist for growth hormone secretion pathway studies.",
     image: "/images/products/ipamorelin.jpeg",
     coa: "/images/coa/ipamorelin-coa.png",
@@ -151,6 +156,7 @@ export const products: Product[] = [
     category: "Sterile Diluent",
     weight: "18.02 g/mol",
     purity: "USP Grade",
+    price: 10,
     description: "Sterile water for injection containing 0.9% benzyl alcohol as a bacteriostatic preservative for peptide reconstitution.",
     image: "/images/products/BAC.png",
     coa: null,

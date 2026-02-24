@@ -127,6 +127,7 @@ export default function ProductDetailClient({ product }: ProductDetailClientProp
           <h1 className="font-serif text-4xl font-bold text-alabaster lg:text-5xl">
             {product.name}
           </h1>
+          <div className="mt-4 text-3xl font-bold text-alabaster">${product.price}</div>
           <p className="mt-2 text-sm text-muted-foreground">
             Molecular Weight: {product.weight}
           </p>
@@ -162,9 +163,14 @@ export default function ProductDetailClient({ product }: ProductDetailClientProp
 
           {/* CTA Buttons */}
           <div className="mt-8 flex flex-wrap items-center gap-4">
-            <button className="animate-pulse-crimson flex-1 rounded-lg bg-crimson px-6 py-3 text-sm font-semibold text-alabaster transition-colors hover:bg-crimson-dark">
-              Add to Inquiry
-            </button>
+            <a
+              href="https://ig.me/m/rgvpeptides"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="animate-pulse-crimson flex-1 rounded-lg bg-crimson px-6 py-3 text-center text-sm font-semibold text-alabaster transition-colors hover:bg-crimson-dark"
+            >
+              Order Now
+            </a>
             {product.coa && (
               <a
                 href={product.coa}

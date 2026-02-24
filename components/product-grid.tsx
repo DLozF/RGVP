@@ -81,6 +81,7 @@ export default function ProductGrid() {
                 {/* Product Name */}
                 <h3 className="mt-2 font-serif text-xl font-bold text-alabaster">{product.name}</h3>
                 <p className="mt-1 font-mono text-xs text-white/70">MW: {product.weight}</p>
+                <p className="mt-2 text-lg font-bold text-alabaster">${product.price}</p>
 
                 {/* Description */}
                 <p className="mt-3 text-sm leading-[1.6] text-muted-foreground">
@@ -89,9 +90,9 @@ export default function ProductGrid() {
 
                 {/* Actions */}
                 <div className="mt-6 flex items-end gap-3">
-                  <button className="animate-pulse-crimson flex-1 rounded-lg bg-gradient-to-r from-crimson to-crimson-dark px-4 py-2.5 text-xs font-semibold text-alabaster transition-all duration-300 hover:shadow-[0_0_20px_rgba(225,29,72,0.4)]">
-                    Add to Inquiry
-                  </button>
+                  <span className="animate-pulse-crimson flex-1 rounded-lg bg-gradient-to-r from-crimson to-crimson-dark px-4 py-2.5 text-center text-xs font-semibold text-alabaster transition-all duration-300 hover:shadow-[0_0_20px_rgba(225,29,72,0.4)]">
+                    Order Now
+                  </span>
                   {product.coa ? (
                     <span
                       onClick={() => product.coa && window.open(product.coa, "_blank")}
