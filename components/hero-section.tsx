@@ -53,9 +53,38 @@ export default function HeroSection() {
         </div>
 
         {/* Right: Logo */}
-        <div className="relative flex items-center justify-center">
-          {/* Logo */}
-          <div className="animate-float">
+        <div className="relative flex h-[400px] w-[400px] items-center justify-center animate-float">
+          {/* Glowing background */}
+          <div className="pointer-events-none absolute z-0 h-[200px] w-[200px] rounded-full bg-crimson/30 blur-[80px]" />
+
+          {/* Concentric rings with atoms - each ring spins to create orbit effect */}
+          
+          {/* Outer ring - slowest (40s), counter-clockwise */}
+          <div className="pointer-events-none absolute z-0 h-[350px] w-[350px] rounded-full border border-white/5 animate-[spin_40s_linear_infinite_reverse]">
+            {/* Atom at left */}
+            <div className="absolute top-1/2 left-0 h-2 w-2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-crimson shadow-[0_0_10px_rgba(225,29,72,0.8)]" />
+          </div>
+          
+          {/* Middle ring - medium speed (30s), clockwise (reverse direction) */}
+          <div className="pointer-events-none absolute z-0 h-[275px] w-[275px] rounded-full border border-white/10 animate-[spin_30s_linear_infinite]">
+            {/* Atom at right */}
+            <div className="absolute top-1/2 right-0 h-2 w-2 translate-x-1/2 -translate-y-1/2 rounded-full bg-crimson shadow-[0_0_10px_rgba(225,29,72,0.8)]" />
+            {/* Atom at left */}
+            <div className="absolute top-1/2 left-0 h-2.5 w-2.5 -translate-x-1/2 -translate-y-1/2 rounded-full bg-crimson shadow-[0_0_10px_rgba(225,29,72,0.8)]" />
+            {/* Atom at top */}
+            <div className="absolute top-0 left-1/2 h-2 w-2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-crimson shadow-[0_0_10px_rgba(225,29,72,0.8)]" />
+          </div>
+          
+          {/* Inner ring - fastest (20s), counter-clockwise */}
+          <div className="pointer-events-none absolute z-0 h-[200px] w-[200px] rounded-full border border-white/10 animate-[spin_20s_linear_infinite_reverse]">
+            {/* Atom at bottom */}
+            <div className="absolute bottom-0 left-1/2 h-2 w-2 -translate-x-1/2 translate-y-1/2 rounded-full bg-crimson shadow-[0_0_10px_rgba(225,29,72,0.8)]" />
+            {/* Atom at right */}
+            <div className="absolute top-1/2 right-0 h-2.5 w-2.5 translate-x-1/2 -translate-y-1/2 rounded-full bg-crimson shadow-[0_0_10px_rgba(225,29,72,0.8)]" />
+          </div>
+
+          {/* Logo - stationary in center */}
+          <div className="relative z-10">
             <img
               src="/images/logo.png"
               alt="RGVPeptides - Texas peptide research company"

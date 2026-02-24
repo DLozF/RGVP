@@ -13,13 +13,7 @@ import {
   Calendar,
   CheckCircle2,
   ExternalLink,
-  Minus,
-  Plus,
-  ShoppingCart,
-  Dna,
-  Atom,
-  Hash,
-  Scale
+  Droplet
 } from "lucide-react"
 import { useCart } from "@/contexts/cart-context"
 import type { Product } from "@/lib/products"
@@ -155,82 +149,16 @@ export default function ProductDetailClient({ product }: ProductDetailClientProp
               <p className="mt-1 text-sm font-semibold text-alabaster">{product.shelfLife}</p>
             </div>
             <div className="rounded-xl border border-navy-mid bg-navy-light/30 p-4">
-              <Package className="h-5 w-5 text-chart-1" />
+              {product.format === "Liquid" ? (
+                <Droplet className="h-5 w-5 text-chart-1" />
+              ) : (
+                <Package className="h-5 w-5 text-chart-1" />
+              )}
               <p className="mt-2 text-xs font-medium text-muted-foreground">Format</p>
-              <p className="mt-1 text-sm font-semibold text-alabaster">Lyophilized</p>
+              <p className="mt-1 text-sm font-semibold text-alabaster">{product.format || "Lyophilized"}</p>
             </div>
           </div>
 
-          {/* Scientific Specifications - For Retatrutide and Tirzepatide */}
-          {product.scientificSpecs && (
-            <div className="mt-8">
-              <h3 className="mb-4 font-serif text-lg font-bold text-alabaster">
-                Scientific Specifications
-              </h3>
-              <div className="grid gap-3 sm:grid-cols-2">
-                {product.scientificSpecs.aminoAcidSequence && (
-                  <div className="flex items-start gap-3 rounded-lg border border-crimson/20 bg-crimson/5 p-4">
-                    <div className="rounded-full bg-crimson/10 p-2">
-                      <Dna className="h-4 w-4 text-crimson" />
-                    </div>
-                    <div>
-                      <p className="text-xs font-medium uppercase tracking-wider text-muted-foreground">
-                        Amino Acid Sequence
-                      </p>
-                      <p className="mt-1 font-mono text-xs text-alabaster">
-                        {product.scientificSpecs.aminoAcidSequence}
-                      </p>
-                    </div>
-                  </div>
-                )}
-                {product.scientificSpecs.molecularFormula && (
-                  <div className="flex items-start gap-3 rounded-lg border border-crimson/20 bg-crimson/5 p-4">
-                    <div className="rounded-full bg-crimson/10 p-2">
-                      <Atom className="h-4 w-4 text-crimson" />
-                    </div>
-                    <div>
-                      <p className="text-xs font-medium uppercase tracking-wider text-muted-foreground">
-                        Molecular Formula
-                      </p>
-                      <p className="mt-1 font-mono text-sm text-alabaster">
-                        {product.scientificSpecs.molecularFormula}
-                      </p>
-                    </div>
-                  </div>
-                )}
-                {product.scientificSpecs.casNumber && (
-                  <div className="flex items-start gap-3 rounded-lg border border-crimson/20 bg-crimson/5 p-4">
-                    <div className="rounded-full bg-crimson/10 p-2">
-                      <Hash className="h-4 w-4 text-crimson" />
-                    </div>
-                    <div>
-                      <p className="text-xs font-medium uppercase tracking-wider text-muted-foreground">
-                        CAS Number
-                      </p>
-                      <p className="mt-1 font-mono text-sm text-alabaster">
-                        {product.scientificSpecs.casNumber}
-                      </p>
-                    </div>
-                  </div>
-                )}
-                {product.scientificSpecs.molecularWeight && (
-                  <div className="flex items-start gap-3 rounded-lg border border-crimson/20 bg-crimson/5 p-4">
-                    <div className="rounded-full bg-crimson/10 p-2">
-                      <Scale className="h-4 w-4 text-crimson" />
-                    </div>
-                    <div>
-                      <p className="text-xs font-medium uppercase tracking-wider text-muted-foreground">
-                        Molecular Weight
-                      </p>
-                      <p className="mt-1 font-mono text-sm text-alabaster">
-                        {product.scientificSpecs.molecularWeight}
-                      </p>
-                    </div>
-                  </div>
-                )}
-              </div>
-            </div>
-          )}
 
           {/* CTA Buttons */}
           <div className="mt-8 flex flex-wrap items-center gap-4">
@@ -252,11 +180,29 @@ export default function ProductDetailClient({ product }: ProductDetailClientProp
 
           {/* Disclaimer */}
           <div className="mt-8 rounded-lg border border-crimson/20 bg-crimson/5 p-4">
-            <p className="text-xs leading-relaxed text-muted-foreground">
-              <strong className="text-crimson">FOR RESEARCH USE ONLY.</strong> This product is not
-              for human or veterinary use. Not for human consumption. All products are intended
-              strictly for laboratory research purposes.
-            </p>
+            {product.format === "Liquid" ? (
+              <p className="text-xs leading-relaxed text-muted-foreground">
+                This sterile diluent is required for the{" "}
+                <Link 
+                  href="/#catalog" 
+                  className="font-semibold text-crimson underline underline-offset-2 transition-colors hover:text-crimson/80"
+                >
+                  reconstitution of lyophilized peptides
+                </Link>
+                . For research use only.
+              </p>
+            ) : (
+              <p className="text-xs leading-relaxed text-muted-foreground">
+                This peptide is supplied in lyophilized form and requires{" "}
+                <Link 
+                  href="/products/bacteriostatic-water" 
+                  className="font-semibold text-crimson underline underline-offset-2 transition-colors hover:text-crimson/80"
+                >
+                  Bacteriostatic Water
+                </Link>{" "}
+                for reconstitution. For research use only.
+              </p>
+            )}
           </div>
         </div>
       </div>

@@ -1,7 +1,8 @@
 "use client"
 
 import { useEffect, useRef } from "react"
-import { FlaskConical, Snowflake, Flag, Award, Microscope, ShieldCheck } from "lucide-react"
+import Link from "next/link"
+import { FlaskConical, Snowflake, Flag, Award, Microscope, ShieldCheck, Droplet } from "lucide-react"
 
 const trustItems = [
   {
@@ -18,6 +19,12 @@ const trustItems = [
     icon: Flag,
     title: "USA Synthesized",
     description: "All peptides are manufactured in our state-of-the-art, cGMP-compliant facility within the United States.",
+  },
+  {
+    icon: Droplet,
+    title: "Reconstitution",
+    description: "Premium bacteriostatic water for peptide reconstitution. USP pharmaceutical grade with 0.9% benzyl alcohol.",
+    isWaterCard: true,
   },
 ]
 
@@ -66,20 +73,40 @@ export default function TrustBar() {
         </div>
 
         {/* Trust Cards */}
-        <div className="grid gap-6 md:grid-cols-3">
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
           {trustItems.map((item, index) => (
             <div
               key={item.title}
               className="reveal group rounded-xl border border-white/10 bg-navy-light/40 p-8 text-center backdrop-blur-xl transition-all duration-300 hover:border-crimson/30 hover:bg-navy-light/60"
               style={{ transitionDelay: `${index * 150}ms` }}
             >
-              <div className="mx-auto mb-5 flex h-14 w-14 items-center justify-center rounded-xl border border-crimson/20 bg-crimson/10 text-crimson transition-all duration-300 group-hover:bg-crimson/20 group-hover:shadow-[0_0_15px_rgba(225,29,72,0.3)]">
+              <div className={`mx-auto mb-5 flex h-14 w-14 items-center justify-center rounded-xl border transition-all duration-300 ${
+                item.isWaterCard 
+                  ? "border-chart-1/20 bg-chart-1/10 text-chart-1 group-hover:bg-chart-1/20 group-hover:shadow-[0_0_15px_rgba(56,189,248,0.3)]" 
+                  : "border-crimson/20 bg-crimson/10 text-crimson group-hover:bg-crimson/20 group-hover:shadow-[0_0_15px_rgba(225,29,72,0.3)]"
+              }`}>
                 <item.icon className="h-6 w-6" strokeWidth={1.5} />
               </div>
-              <h3 className="font-serif text-lg font-bold text-alabaster">{item.title}</h3>
-              <p className="mt-3 text-sm leading-[1.6] text-muted-foreground">
-                {item.description}
-              </p>
+              <h3 className={`font-serif text-lg font-bold ${item.isWaterCard ? "text-chart-1" : "text-alabaster"}`}>
+                {item.title}
+              </h3>
+              {item.isWaterCard ? (
+                <div className="mt-3">
+                  <Link 
+                    href="/products/bacteriostatic-water"
+                    className="text-sm font-semibold text-alabaster underline decoration-chart-1/50 underline-offset-2 transition-colors hover:text-chart-1 hover:decoration-chart-1"
+                  >
+                    Bacteriostatic Water
+                  </Link>
+                  <p className="mt-2 text-xs leading-[1.6] text-muted-foreground">
+                    {item.description}
+                  </p>
+                </div>
+              ) : (
+                <p className="mt-3 text-sm leading-[1.6] text-muted-foreground">
+                  {item.description}
+                </p>
+              )}
             </div>
           ))}
         </div>
