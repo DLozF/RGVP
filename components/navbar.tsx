@@ -5,9 +5,9 @@ import { Menu, X } from "lucide-react"
 import PromoBanner from "./promo-banner"
 
 const navLinks = [
-  { label: "Research Catalog", href: "#catalog" },
-  { label: "Quality Control", href: "#quality" },
-  { label: "About", href: "#about" },
+  { label: "Research Catalog", href: "/#catalog" },
+  { label: "Quality Control", href: "/#quality" },
+  { label: "About", href: "/about" },
 ]
 
 export default function Navbar() {
