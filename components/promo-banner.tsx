@@ -25,7 +25,7 @@ export default function PromoBanner() {
     <div className="relative bg-white py-1 text-center text-sm">
       <p className="text-navy">
         <span className="font-semibold text-crimson">Free Shipping</span>{" "}
-        on orders over <span className="font-semibold text-crimson">$100</span> within the RGV
+        on orders over <span className="font-semibold text-crimson">$150</span> within the RGV
       </p>
       <button
         onClick={handleDismiss}
