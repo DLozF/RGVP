@@ -164,7 +164,7 @@ export default function ProductDetailClient({ product }: ProductDetailClientProp
           {/* CTA Buttons */}
           <div className="mt-8 flex flex-wrap items-center gap-4">
             <a
-              href="https://ig.me/m/mosttalentedbaldman" 
+              href="https://ig.me/m/rgvpeptides" 
               target="_blank"
               rel="noopener noreferrer"
               className="animate-pulse-crimson flex-1 rounded-lg bg-crimson px-6 py-3 text-center text-sm font-semibold text-alabaster transition-colors hover:bg-crimson-dark"
