@@ -132,6 +132,29 @@ export default function ProductDetailClient({ product }: ProductDetailClientProp
             Molecular Weight: {product.weight}
           </p>
 
+          {/* Mobile-Only CTA Buttons */}
+          <div className="mt-6 flex flex-wrap items-center gap-4 lg:hidden">
+            <a
+              href="https://www.instagram.com/rgvpeptides/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="animate-pulse-crimson flex-1 rounded-lg bg-crimson px-6 py-3 text-center text-sm font-semibold text-alabaster transition-colors hover:bg-crimson-dark"
+            >
+              Order Now
+            </a>
+            {product.coa && (
+              <a
+                href={product.coa}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-lg border border-navy-mid px-6 py-3 text-sm font-medium text-alabaster transition-colors hover:border-alabaster/30 hover:bg-navy-light/50"
+              >
+                <FileDown className="h-4 w-4" />
+                Download COA
+              </a>
+            )}
+          </div>
+
           {/* Short Description */}
           <p className="mt-6 text-base leading-relaxed text-alabaster/90">
             {product.description}
@@ -160,11 +183,10 @@ export default function ProductDetailClient({ product }: ProductDetailClientProp
             </div>
           </div>
 
-
-          {/* CTA Buttons */}
-          <div className="mt-8 flex flex-wrap items-center gap-4">
+          {/* Desktop-Only CTA Buttons */}
+          <div className="mt-8 hidden flex-wrap items-center gap-4 lg:flex">
             <a
-              href="https://ig.me/m/rgvpeptides" 
+              href="https://www.instagram.com/rgvpeptides/"
               target="_blank"
               rel="noopener noreferrer"
               className="animate-pulse-crimson flex-1 rounded-lg bg-crimson px-6 py-3 text-center text-sm font-semibold text-alabaster transition-colors hover:bg-crimson-dark"
