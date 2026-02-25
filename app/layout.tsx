@@ -9,7 +9,7 @@ const spaceGrotesk = Space_Grotesk({ subsets: ['latin'], variable: '--font-space
 const jetbrainsMono = JetBrains_Mono({ subsets: ['latin'], variable: '--font-jetbrains-mono' })
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://www.instagram.com/rgvpeptides/'), // Replace this with your actual website domain once you launch
+  metadataBase: new URL('https://rgvpeptides.bio'),
   title: 'RGVPeptides | High-Purity Research Peptides & Compounds',
   description: 'Premium laboratory-grade research peptides synthesized in the USA. High-purity BPC-157, Retatrutide, GHK-Cu, and Ipamorelin with >99% verified purity for clinical research and investigation.',
   keywords: ['peptide research', 'USA synthesized', 'metabolic research compounds', 'Retatrutide', 'GHK-Cu', 'copper peptide', 'laboratory-grade peptides', 'clinical research', 'high-purity peptides', 'BPC-157', 'Ipamorelin'],
