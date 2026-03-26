@@ -134,14 +134,17 @@ export default function ProductDetailClient({ product }: ProductDetailClientProp
 
           {/* Mobile-Only CTA Buttons */}
           <div className="mt-6 flex flex-wrap items-center gap-4 lg:hidden">
-            <a
-              href="https://www.instagram.com/rgvpeptidess/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="animate-pulse-crimson flex-1 rounded-lg bg-crimson px-6 py-3 text-center text-sm font-semibold text-alabaster transition-colors hover:bg-crimson-dark"
+            <button
+              className="snipcart-add-item animate-pulse-crimson flex-1 rounded-lg bg-crimson px-6 py-3 text-center text-sm font-semibold text-alabaster transition-colors hover:bg-crimson-dark"
+              data-item-id={product.slug}
+              data-item-name={product.name}
+              data-item-price={product.price}
+              data-item-url={`https://rgvpeptides.bio/products/${product.slug}`}
+              data-item-description={product.description}
+              data-item-image={product.image}
             >
               Order Now
-            </a>
+            </button>
             {product.coa && (
               <a
                 href={product.coa}
@@ -185,14 +188,17 @@ export default function ProductDetailClient({ product }: ProductDetailClientProp
 
           {/* Desktop-Only CTA Buttons */}
           <div className="mt-8 hidden flex-wrap items-center gap-4 lg:flex">
-            <a
-              href="https://www.instagram.com/rgvpeptidess/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="animate-pulse-crimson flex-1 rounded-lg bg-crimson px-6 py-3 text-center text-sm font-semibold text-alabaster transition-colors hover:bg-crimson-dark"
+            <button
+              className="snipcart-add-item animate-pulse-crimson flex-1 rounded-lg bg-crimson px-6 py-3 text-center text-sm font-semibold text-alabaster transition-colors hover:bg-crimson-dark"
+              data-item-id={product.slug}
+              data-item-name={product.name}
+              data-item-price={product.price}
+              data-item-url={`https://rgvpeptides.bio/products/${product.slug}`}
+              data-item-description={product.description}
+              data-item-image={product.image}
             >
               Order Now
-            </a>
+            </button>
             {product.coa && (
               <a
                 href={product.coa}

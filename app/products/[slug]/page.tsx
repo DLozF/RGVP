@@ -49,6 +49,21 @@ export default async function ProductPage({ params }: ProductPageProps) {
       <div className="relative z-10">
         <Navbar />
         <main className="pt-24">
+          {/* Hidden product definition for Snipcart crawler */}
+          <div hidden aria-hidden="true">
+            <button
+              type="button"
+              className="snipcart-add-item"
+              data-item-id={product.slug}
+              data-item-name={product.name}
+              data-item-price={product.price}
+              data-item-url={`https://rgvpeptides.bio/products/${product.slug}`}
+              data-item-description={product.description}
+              data-item-image={product.image}
+            >
+              {product.name}
+            </button>
+          </div>
           <ProductDetailClient product={product} />
         </main>
         <Footer />
