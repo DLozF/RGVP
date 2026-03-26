@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Script from 'next/script'
 import { Inter, Space_Grotesk, JetBrains_Mono } from 'next/font/google'
 import { CartProvider } from '@/contexts/cart-context'
 import CartSidebar from '@/components/cart-sidebar'
@@ -53,6 +54,13 @@ export default function RootLayout({
           {children}
           <CartSidebar />
         </CartProvider>
+        
+        {/* FoxyCart Loader injected optimally for Next.js */}
+        <Script 
+          src="https://cdn.foxycart.com/rgvpeptides/loader.js" 
+          data-cfasync="false" 
+          strategy="afterInteractive" 
+        />
       </body>
     </html>
   )
