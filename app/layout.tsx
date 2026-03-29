@@ -80,7 +80,7 @@ export default function RootLayout({
                     deferred_payment: "Pay via CashApp, Zelle, or Venmo"
                   },
                   form: {
-                    deferred_payment_title: "Action Required: Offline Payment",
+                    deferred_payment_title: "Payment Method:",
                     deferred_payment_instructions: "Click 'Place Order' below to generate your official Invoice Number. You will then send your total via CashApp or Zelle using ONLY that exact Invoice Number in the payment memo. <strong>Do not include any product names.</strong>"
                   }
                 }
