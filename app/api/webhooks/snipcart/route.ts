@@ -3,10 +3,10 @@ import { supabase } from '@/lib/supabase'
 
 export async function POST(req: NextRequest) {
   
-const token = req.headers.get('x-snipcart-requesttoken')
-if (token !== process.env.SNIPCART_WEBHOOK_TOKEN) {
- return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
- }
+// const token = req.headers.get('x-snipcart-requesttoken')
+// if (token !== process.env.SNIPCART_WEBHOOK_TOKEN) {
+//  return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
+//  }
 
   const body = await req.json()
 
