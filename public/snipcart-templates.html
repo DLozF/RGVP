@@ -1,0 +1,134 @@
+<div id="snipcart-templates" hidden>
+  <div id="snipcart-order-confirmation" component="order-confirmation">
+    <div>
+      <div class="rgv-confirm-box">
+        <div class="rgv-confirm-title">✅ Order Placed!</div>
+        <div class="rgv-invoice-block">
+          <div class="rgv-invoice-label">Your Invoice Number</div>
+          <div class="rgv-invoice-number">{{order.invoiceNumber}}</div>
+        </div>
+        <div class="rgv-instructions">
+          <div class="rgv-step">
+            <span class="rgv-step-num">1</span>
+            <span>Open <strong>CashApp</strong> and send <strong>${{order.grandTotal}}</strong> to <span class="rgv-handle">$RGVPeptides</span></span>
+          </div>
+          <div class="rgv-step">
+            <span class="rgv-step-num">2</span>
+            <span>In the <strong>memo field</strong>, type ONLY your invoice number:</span>
+          </div>
+          <div class="rgv-memo-copy">
+            <span class="rgv-memo-text">{{order.invoiceNumber}}</span>
+            <span class="rgv-memo-hint">Copy this exactly into the memo</span>
+          </div>
+          <div class="rgv-step">
+            <span class="rgv-step-num">3</span>
+            <span>Once we receive your payment, we'll send a confirmation to <strong>{{order.email}}</strong></span>
+          </div>
+        </div>
+        <div class="rgv-warning">
+          ⚠️ Do NOT add any other text in the memo. Only the invoice number. Orders with missing or incorrect memos will be delayed.
+        </div>
+      </div>
+      <order-summary></order-summary>
+    </div>
+  </div>
+</div>
+
+<style>
+  .rgv-confirm-box {
+    background: #001E3C;
+    border-radius: 16px;
+    padding: 28px;
+    margin-bottom: 24px;
+    color: #F8FAFC;
+  }
+  .rgv-confirm-title {
+    font-size: 22px;
+    font-weight: 800;
+    margin-bottom: 20px;
+    color: #F8FAFC;
+  }
+  .rgv-invoice-block {
+    background: #E11D48;
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 24px;
+  }
+  .rgv-invoice-label {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: rgba(255,255,255,0.8);
+    margin-bottom: 8px;
+  }
+  .rgv-invoice-number {
+    font-size: 36px;
+    font-weight: 900;
+    color: white;
+    font-family: monospace;
+    letter-spacing: 3px;
+  }
+  .rgv-instructions {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-bottom: 20px;
+  }
+  .rgv-step {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    font-size: 14px;
+    color: #CBD5E1;
+  }
+  .rgv-step-num {
+    background: #1E3A5F;
+    color: #F8FAFC;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 13px;
+    flex-shrink: 0;
+  }
+  .rgv-handle {
+    color: #00D64F;
+    font-weight: 700;
+  }
+  .rgv-memo-copy {
+    background: #0A2A4A;
+    border: 2px dashed #E11D48;
+    border-radius: 10px;
+    padding: 16px;
+    text-align: center;
+    margin-left: 38px;
+  }
+  .rgv-memo-text {
+    display: block;
+    font-size: 28px;
+    font-weight: 900;
+    color: #E11D48;
+    font-family: monospace;
+    letter-spacing: 2px;
+  }
+  .rgv-memo-hint {
+    display: block;
+    font-size: 11px;
+    color: #94A3B8;
+    margin-top: 4px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  .rgv-warning {
+    background: #fff8e1;
+    color: #78350f;
+    border-radius: 8px;
+    padding: 12px 16px;
+    font-size: 13px;
+    line-height: 1.5;
+  }
+</style>
