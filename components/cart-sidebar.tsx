@@ -150,7 +150,13 @@ export default function CartSidebar() {
                   </p>
                 </div>
               </div>
-              <button className="w-full rounded-lg bg-crimson py-3 text-sm font-semibold text-alabaster transition-colors hover:bg-crimson-dark">
+              <button
+                className="w-full rounded-lg bg-crimson py-3 text-sm font-semibold text-alabaster transition-colors hover:bg-crimson-dark"
+                onClick={() => {
+                  const itemList = items.map(i => `- ${i.product.name} (qty: ${i.quantity})`).join('%0A')
+                  window.location.href = `mailto:support@rgvpeptides.com?subject=Research%20Inquiry&body=Hello%2C%0A%0AI%20am%20interested%20in%20the%20following%20research%20compounds%3A%0A%0A${itemList}%0A%0APlease%20provide%20pricing%20and%20availability%20information.`
+                }}
+              >
                 Submit Inquiry
               </button>
             </div>

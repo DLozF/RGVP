@@ -15,7 +15,6 @@ import {
   ExternalLink,
   Droplet
 } from "lucide-react"
-import { useCart } from "@/contexts/cart-context"
 import type { Product } from "@/lib/products"
 
 interface ProductDetailClientProps {
@@ -25,17 +24,6 @@ interface ProductDetailClientProps {
 export default function ProductDetailClient({ product }: ProductDetailClientProps) {
   const [selectedTab, setSelectedTab] = useState<"overview" | "specs" | "applications">("overview")
   const [quantity, setQuantity] = useState(1)
-  const [isAdding, setIsAdding] = useState(false)
-  const { addToCart } = useCart()
-
-  const handleAddToCart = () => {
-    setIsAdding(true)
-    addToCart(product, quantity)
-    setTimeout(() => {
-      setIsAdding(false)
-    }, 500)
-  }
-
   const incrementQuantity = () => {
     if (quantity < 99) setQuantity(quantity + 1)
   }
@@ -100,7 +88,7 @@ export default function ProductDetailClient({ product }: ProductDetailClientProp
                       Third-party verified by Janoshik Analytical
                     </p>
                   </div>
-                  <a
+                  <Link
                     href={product.coa}
                     target="_blank"
                     rel="noopener noreferrer"
@@ -108,7 +96,7 @@ export default function ProductDetailClient({ product }: ProductDetailClientProp
                   >
                     <FileDown className="h-3.5 w-3.5" />
                     View COA
-                  </a>
+                  </Link>
                 </div>
               </div>
             )}
@@ -132,8 +120,8 @@ export default function ProductDetailClient({ product }: ProductDetailClientProp
             Molecular Weight: {product.weight}
           </p>
 
-          {/* Mobile-Only CTA Buttons */}
-          <div className="mt-6 flex flex-wrap items-center gap-4 lg:hidden">
+          {/* CTA Buttons */}
+          <div className="mt-6 flex flex-wrap items-center gap-4">
             <button
               className="snipcart-add-item animate-pulse-crimson flex-1 rounded-lg bg-crimson px-6 py-3 text-center text-sm font-semibold text-alabaster transition-colors hover:bg-crimson-dark"
               data-item-id={product.slug}
@@ -146,7 +134,7 @@ export default function ProductDetailClient({ product }: ProductDetailClientProp
               Order Now
             </button>
             {product.coa && (
-              <a
+              <Link
                 href={product.coa}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -154,7 +142,7 @@ export default function ProductDetailClient({ product }: ProductDetailClientProp
               >
                 <FileDown className="h-4 w-4" />
                 Download COA
-              </a>
+              </Link>
             )}
           </div>
 
@@ -186,31 +174,6 @@ export default function ProductDetailClient({ product }: ProductDetailClientProp
             </div>
           </div>
 
-          {/* Desktop-Only CTA Buttons */}
-          <div className="mt-8 hidden flex-wrap items-center gap-4 lg:flex">
-            <button
-              className="snipcart-add-item animate-pulse-crimson flex-1 rounded-lg bg-crimson px-6 py-3 text-center text-sm font-semibold text-alabaster transition-colors hover:bg-crimson-dark"
-              data-item-id={product.slug}
-              data-item-name={product.name}
-              data-item-price={product.price}
-              data-item-url={`https://rgvpeptides.bio/products/${product.slug}`}
-              data-item-description={product.description}
-              data-item-image={product.image}
-            >
-              Order Now
-            </button>
-            {product.coa && (
-              <a
-                href={product.coa}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-lg border border-navy-mid px-6 py-3 text-sm font-medium text-alabaster transition-colors hover:border-alabaster/30 hover:bg-navy-light/50"
-              >
-                <FileDown className="h-4 w-4" />
-                Download COA
-              </a>
-            )}
-          </div>
 
           {/* Disclaimer */}
           <div className="mt-8 rounded-lg border border-crimson/20 bg-crimson/5 p-4">
@@ -339,14 +302,14 @@ export default function ProductDetailClient({ product }: ProductDetailClientProp
             <h3 className="font-serif text-xl font-bold text-alabaster">Quality Assurance</h3>
             <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
               All RGVPeptides products undergo rigorous third-party testing by{" "}
-              <a
+              <Link
                 href="https://www.janoshik.com"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-1 text-chart-1 transition-colors hover:text-chart-1/80"
               >
                 Janoshik Analytical <ExternalLink className="h-3 w-3" />
-              </a>
+              </Link>
               . Each batch is tested for purity, identity, and concentration to ensure the highest
               quality standards for your research.
             </p>

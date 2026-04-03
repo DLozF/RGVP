@@ -27,6 +27,7 @@ export default function AdminOrdersPage() {
   const [orders, setOrders] = useState<Order[]>([])
   const [loading, setLoading] = useState(false)
   const [confirming, setConfirming] = useState<string | null>(null)
+  const [error, setError] = useState<string | null>(null)
 
   async function fetchOrders(s: string) {
     setLoading(true)
@@ -38,7 +39,7 @@ export default function AdminOrdersPage() {
       setOrders(data.orders)
       setAuthed(true)
     } else {
-      alert('Invalid secret')
+      setError('Invalid secret')
     }
     setLoading(false)
   }
@@ -53,7 +54,7 @@ export default function AdminOrdersPage() {
     if (res.ok) {
       await fetchOrders(secret)
     } else {
-      alert('Confirmation failed')
+      setError('Failed to confirm order. Please try again.')
     }
     setConfirming(null)
   }
@@ -67,10 +68,11 @@ export default function AdminOrdersPage() {
             type="password"
             placeholder="Enter admin secret"
             value={secret}
-            onChange={e => setSecret(e.target.value)}
+            onChange={e => { setSecret(e.target.value); setError(null) }}
             onKeyDown={e => e.key === 'Enter' && fetchOrders(secret)}
             className="w-full rounded-lg border border-navy-mid bg-navy-light px-4 py-3 text-alabaster placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-crimson"
           />
+          {error && <p className="text-sm text-crimson">{error}</p>}
           <button
             onClick={() => fetchOrders(secret)}
             disabled={loading}
@@ -101,6 +103,11 @@ export default function AdminOrdersPage() {
             Refresh
           </button>
         </div>
+        {error && (
+          <div className="mb-6 rounded-lg border border-crimson/30 bg-crimson/10 px-4 py-3 text-sm text-crimson">
+            {error}
+          </div>
+        )}
 
         {/* Summary Cards */}
         <div className="mb-8 grid grid-cols-3 gap-4">

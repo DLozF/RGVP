@@ -1,3 +1,4 @@
+import Link from "next/link"
 import { AlertTriangle } from "lucide-react"
 
 const footerLinks = {
@@ -40,12 +41,12 @@ export default function Footer() {
               <ul className="flex flex-col gap-2.5">
                 {links.map((link) => (
                   <li key={link}>
-                    <a
+                    <Link
                       href="#"
                       className="text-sm text-muted-foreground transition-colors hover:text-alabaster"
                     >
                       {link}
-                    </a>
+                    </Link>
                   </li>
                 ))}
               </ul>

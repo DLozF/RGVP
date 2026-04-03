@@ -1,6 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
+import Link from "next/link"
 import { Menu, X } from "lucide-react"
 import PromoBanner from "./promo-banner"
 
@@ -30,7 +31,7 @@ export default function Navbar() {
           }`}
       >
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-1.5">
-          <a href="/" className="flex items-center gap-0">
+          <Link href="/" className="flex items-center gap-0">
             <img
               src="/images/logo.png"
               alt="RGVPeptides logo"
@@ -39,18 +40,18 @@ export default function Navbar() {
             <span className="-ml-1 font-serif text-xl font-bold tracking-tight text-alabaster">
               RGV<span className="text-crimson">Peptides</span>
             </span>
-          </a>
+          </Link>
 
           {/* Desktop Nav */}
           <div className="hidden items-center gap-8 md:flex">
             {navLinks.map((link) => (
-              <a
+              <Link
                 key={link.label}
                 href={link.href}
                 className="text-sm font-medium text-alabaster/70 transition-colors hover:text-alabaster"
               >
                 {link.label}
-              </a>
+              </Link>
             ))}
           </div>
 
@@ -72,14 +73,14 @@ export default function Navbar() {
         <div className="border-t border-navy-mid/30 bg-navy/95 backdrop-blur-xl md:hidden">
           <div className="flex flex-col gap-1 px-6 py-4">
             {navLinks.map((link) => (
-              <a
+              <Link
                 key={link.label}
                 href={link.href}
                 onClick={() => setMobileOpen(false)}
                 className="rounded-lg px-4 py-3 text-sm font-medium text-alabaster/70 transition-colors hover:bg-navy-light hover:text-alabaster"
               >
                 {link.label}
-              </a>
+              </Link>
             ))}
           </div>
         </div>

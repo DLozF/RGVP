@@ -10,10 +10,11 @@ function OrderConfirmationContent() {
   const invoice = rawInvoice.replace('Invoice number :', '').replace('Invoice number:', '').trim()
   const [email, setEmail] = useState('')
   const [total, setTotal] = useState('')
+  const [orderLoading, setOrderLoading] = useState(true)
 
   useEffect(() => {
     if (!invoice) return
-    
+
     let attempts = 0
     const maxAttempts = 10
 
@@ -25,13 +26,18 @@ function OrderConfirmationContent() {
           if (data.order) {
             setEmail(data.order.customer_email)
             setTotal(data.order.order_total)
+            setOrderLoading(false)
           } else if (attempts < maxAttempts) {
             setTimeout(tryFetch, 1000)
+          } else {
+            setOrderLoading(false)
           }
         })
         .catch(() => {
           if (attempts < maxAttempts) {
             setTimeout(tryFetch, 1000)
+          } else {
+            setOrderLoading(false)
           }
         })
     }
@@ -71,7 +77,10 @@ function OrderConfirmationContent() {
             <div>
               <p className="text-sm text-muted-foreground">
                 Open <span className="text-green-400 font-bold">CashApp</span> and send{' '}
-                {total && <span className="text-alabaster font-bold">${total}</span>}{' '}
+                {orderLoading
+                  ? <span className="inline-block h-4 w-12 animate-pulse rounded bg-white/10 align-middle" />
+                  : total && <span className="text-alabaster font-bold">${total}</span>
+                }{' '}
                 to <span className="text-green-400 font-bold">$RGVPeptides</span>
               </p>
             </div>
@@ -94,7 +103,10 @@ function OrderConfirmationContent() {
             <div className="flex-shrink-0 w-7 h-7 rounded-full bg-navy-mid flex items-center justify-center text-xs font-bold text-alabaster">3</div>
             <div>
               <p className="text-sm text-muted-foreground">We'll send a confirmation email to</p>
-              {email && <p className="text-sm font-semibold text-alabaster">{email}</p>}
+              {orderLoading
+                ? <span className="inline-block h-4 w-40 animate-pulse rounded bg-white/10" />
+                : email && <p className="text-sm font-semibold text-alabaster">{email}</p>
+              }
               <p className="text-sm text-muted-foreground">once your payment is received</p>
             </div>
           </div>

@@ -1,5 +1,6 @@
 "use client"
 
+import Link from "next/link"
 import { useEffect, useState } from "react"
 
 export default function HeroSection() {
@@ -37,18 +38,18 @@ export default function HeroSection() {
           </p>
 
           <div className="mt-8 flex flex-wrap items-center gap-4">
-            <a
-              href="#catalog"
+            <Link
+              href="/#catalog"
               className="animate-pulse-crimson rounded-lg bg-gradient-to-r from-crimson to-crimson-dark px-8 py-3.5 text-sm font-semibold text-alabaster transition-all duration-300 hover:shadow-[0_0_25px_rgba(225,29,72,0.5)]"
             >
               Explore Research Catalog
-            </a>
-            <a
-              href="#quality"
+            </Link>
+            <Link
+              href="/#quality"
               className="rounded-lg border border-navy-mid px-8 py-3.5 text-sm font-semibold text-alabaster transition-colors hover:border-alabaster/30 hover:bg-navy-light"
             >
               Quality Assurance
-            </a>
+            </Link>
           </div>
         </div>
 

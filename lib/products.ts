@@ -137,7 +137,7 @@ export const products: Product[] = [
     purity: "99.9%",
     price: 65,
     description: "A synergistic 5mg/5mg peptide blend combining a GHRH analogue (Modified GRF 1-29) and a selective GHRP for amplified growth hormone secretion research.",
-    image: "/images/products/cjc:ipamorelin.png",
+    image: "/images/products/cjc-ipamorelin.png",
     coa: null,
     detailedDescription: "This formulation combines CJC-1295 without DAC (also known as Modified GRF 1-29), a synthetic Growth Hormone Releasing Hormone (GHRH) analogue, with Ipamorelin, a highly selective Growth Hormone Secretagogue (GHRP). When researched together in this 1:1 ratio (5mg/5mg), they exhibit a profound synergistic effect, amplifying the pulsatile release of growth hormone in laboratory models. This combination is highly regarded in research for maximizing pathway stimulation without significantly increasing cortisol, ACTH, or prolactin levels.",
     specifications: [
