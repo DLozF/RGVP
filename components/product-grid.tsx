@@ -90,7 +90,7 @@ export default function ProductGrid() {
 
                 {/* Actions */}
                 <div className="mt-6 flex items-end gap-3">
-                  <span className="animate-pulse-crimson flex-1 rounded-lg bg-gradient-to-r from-crimson to-crimson-dark px-4 py-2.5 text-center text-xs font-semibold text-alabaster transition-all duration-300 hover:shadow-[0_0_20px_rgba(225,29,72,0.4)]">
+                  <span className="flex-1 rounded-lg bg-gradient-to-r from-crimson to-crimson-dark px-4 py-2.5 text-center text-xs font-semibold text-alabaster transition-all duration-300 hover:shadow-[0_0_20px_rgba(225,29,72,0.4)]">
                     Order Now
                   </span>
                   {product.coa ? (

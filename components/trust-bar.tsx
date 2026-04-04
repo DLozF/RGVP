@@ -80,9 +80,9 @@ export default function TrustBar() {
               className="reveal group rounded-xl border border-white/10 bg-navy-light/40 p-8 text-center backdrop-blur-xl transition-all duration-300 hover:border-crimson/30 hover:bg-navy-light/60"
               style={{ transitionDelay: `${index * 150}ms` }}
             >
-              <div className={`mx-auto mb-5 flex h-14 w-14 items-center justify-center rounded-xl border transition-all duration-300 ${
-                item.isWaterCard 
-                  ? "border-chart-1/20 bg-chart-1/10 text-chart-1 group-hover:bg-chart-1/20 group-hover:shadow-[0_0_15px_rgba(56,189,248,0.3)]" 
+              <div className={`mx-auto mb-5 flex h-14 w-14 items-center justify-center rounded-full border transition-all duration-300 ${
+                item.isWaterCard
+                  ? "border-chart-1/20 bg-chart-1/10 text-chart-1 group-hover:bg-chart-1/20 group-hover:shadow-[0_0_15px_rgba(56,189,248,0.3)]"
                   : "border-crimson/20 bg-crimson/10 text-crimson group-hover:bg-crimson/20 group-hover:shadow-[0_0_15px_rgba(225,29,72,0.3)]"
               }`}>
                 <item.icon className="h-6 w-6" strokeWidth={1.5} />
@@ -112,11 +112,11 @@ export default function TrustBar() {
         </div>
 
         {/* Stats Bar */}
-        <div className="reveal mt-16 grid gap-px overflow-hidden rounded-xl border-t border-b border-navy-mid bg-navy-mid md:grid-cols-3">
+        <div className="reveal mt-16 grid gap-4 md:grid-cols-3">
           {stats.map((stat) => (
             <div
               key={stat.label}
-              className="flex flex-col items-center gap-2 bg-navy-light/50 px-8 py-8 backdrop-blur-sm transition-colors hover:bg-navy-light/70"
+              className="flex flex-col items-center gap-2 rounded-xl border border-white/10 bg-navy-light/40 px-8 py-8 backdrop-blur-sm transition-colors hover:border-crimson/20 hover:bg-navy-light/60"
             >
               <stat.icon className="mb-1 h-5 w-5 text-crimson" strokeWidth={1.5} />
               <span className="font-mono text-3xl font-bold text-alabaster">{stat.value}</span>

@@ -22,14 +22,14 @@ export default function PromoBanner() {
   if (!isVisible) return null
 
   return (
-    <div className="relative bg-white py-1 text-center text-sm">
-      <p className="text-navy">
+    <div className="relative bg-gradient-to-r from-navy-light via-crimson/20 to-navy-light py-1.5 text-center text-sm border-b border-crimson/20">
+      <p className="text-alabaster">
         <span className="font-semibold text-crimson">Free Shipping</span>{" "}
         on orders over <span className="font-semibold text-crimson">$150</span> within the RGV
       </p>
       <button
         onClick={handleDismiss}
-        className="absolute right-4 top-1/2 -translate-y-1/2 text-navy/50 transition-colors hover:text-navy"
+        className="absolute right-4 top-1/2 -translate-y-1/2 text-alabaster/50 transition-colors hover:text-alabaster"
         aria-label="Dismiss banner"
       >
         <X className="h-4 w-4" />
