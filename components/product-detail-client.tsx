@@ -16,6 +16,7 @@ import {
   Droplet
 } from "lucide-react"
 import type { Product } from "@/lib/products"
+import RelatedProducts from "@/components/related-products"
 
 interface ProductDetailClientProps {
   product: Product
@@ -316,6 +317,9 @@ export default function ProductDetailClient({ product }: ProductDetailClientProp
           </div>
         </div>
       </div>
+
+      {/* Related Products */}
+      <RelatedProducts currentSlug={product.slug} />
     </div>
   )
 }

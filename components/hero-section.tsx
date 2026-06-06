@@ -1,6 +1,7 @@
 "use client"
 
 import Link from "next/link"
+import Image from "next/image"
 import { useEffect, useState } from "react"
 
 export default function HeroSection() {
@@ -86,9 +87,12 @@ export default function HeroSection() {
 
           {/* Logo - stationary in center */}
           <div className="relative z-10">
-            <img
+            <Image
               src="/images/logo.png"
               alt="RGVPeptides - Texas peptide research company"
+              width={320}
+              height={320}
+              priority
               className="h-64 w-auto object-contain lg:h-80"
             />
           </div>

@@ -2,12 +2,15 @@
 
 import { useState, useEffect } from "react"
 import Link from "next/link"
+import Image from "next/image"
 import { Menu, X } from "lucide-react"
 import PromoBanner from "./promo-banner"
 
 const navLinks = [
   { label: "Research Catalog", href: "/#catalog" },
   { label: "Quality Control", href: "/#quality" },
+  { label: "Calculator", href: "/#calculator" },
+  { label: "FAQ", href: "/#faq" },
   { label: "About", href: "/about" },
 ]
 
@@ -32,9 +35,12 @@ export default function Navbar() {
       >
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-1.5">
           <Link href="/" className="flex items-center gap-0">
-            <img
+            <Image
               src="/images/logo.png"
               alt="RGVPeptides logo"
+              width={48}
+              height={48}
+              priority
               className="h-12 w-auto object-contain"
             />
             <span className="-ml-1 font-serif text-xl font-bold tracking-tight text-alabaster">

@@ -32,6 +32,27 @@ export async function generateMetadata({ params }: ProductPageProps): Promise<Me
   return {
     title: `${product.name} - ${product.category} | RGVPeptides`,
     description: product.description,
+    openGraph: {
+      title: `${product.name} - ${product.category} | RGVPeptides`,
+      description: product.description,
+      url: `/products/${resolvedParams.slug}`,
+      siteName: 'RGVPeptides',
+      images: [
+        {
+          url: product.image,
+          width: 800,
+          height: 800,
+          alt: `${product.name} - Research peptide`,
+        },
+      ],
+      type: 'website',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: `${product.name} | RGVPeptides`,
+      description: product.description,
+      images: [product.image],
+    },
   }
 }
 

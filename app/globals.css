@@ -127,4 +127,109 @@
   animation: orbit-reverse 12s linear infinite;
 }
 
+/* Calculator range sliders — Crimson */
+.calc-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 6px;
+  border-radius: 999px;
+  background: linear-gradient(to right, #E11D48 0%, #E11D48 var(--val, 50%), #1E3A5F var(--val, 50%), #1E3A5F 100%);
+  outline: none;
+  cursor: pointer;
+}
+.calc-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  background: #E11D48;
+  border: 3px solid #001E3C;
+  box-shadow: 0 0 10px rgba(225, 29, 72, 0.4);
+  cursor: pointer;
+  transition: box-shadow 0.2s;
+}
+.calc-slider::-webkit-slider-thumb:hover {
+  box-shadow: 0 0 18px rgba(225, 29, 72, 0.6);
+}
+.calc-slider::-moz-range-thumb {
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  background: #E11D48;
+  border: 3px solid #001E3C;
+  box-shadow: 0 0 10px rgba(225, 29, 72, 0.4);
+  cursor: pointer;
+}
+
+/* Calculator range sliders — Blue */
+.calc-slider-blue {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 6px;
+  border-radius: 999px;
+  background: #1E3A5F;
+  outline: none;
+  cursor: pointer;
+}
+.calc-slider-blue::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  background: #3B82F6;
+  border: 3px solid #001E3C;
+  box-shadow: 0 0 10px rgba(59, 130, 246, 0.4);
+  cursor: pointer;
+  transition: box-shadow 0.2s;
+}
+.calc-slider-blue::-webkit-slider-thumb:hover {
+  box-shadow: 0 0 18px rgba(59, 130, 246, 0.6);
+}
+.calc-slider-blue::-moz-range-thumb {
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  background: #3B82F6;
+  border: 3px solid #001E3C;
+  box-shadow: 0 0 10px rgba(59, 130, 246, 0.4);
+  cursor: pointer;
+}
+
+/* Calculator range sliders — Green */
+.calc-slider-green {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 6px;
+  border-radius: 999px;
+  background: #1E3A5F;
+  outline: none;
+  cursor: pointer;
+}
+.calc-slider-green::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  background: #10B981;
+  border: 3px solid #001E3C;
+  box-shadow: 0 0 10px rgba(16, 185, 129, 0.4);
+  cursor: pointer;
+  transition: box-shadow 0.2s;
+}
+.calc-slider-green::-webkit-slider-thumb:hover {
+  box-shadow: 0 0 18px rgba(16, 185, 129, 0.6);
+}
+.calc-slider-green::-moz-range-thumb {
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  background: #10B981;
+  border: 3px solid #001E3C;
+  box-shadow: 0 0 10px rgba(16, 185, 129, 0.4);
+  cursor: pointer;
+}
+
 

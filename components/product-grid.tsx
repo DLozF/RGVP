@@ -95,8 +95,18 @@ export default function ProductGrid() {
                   </span>
                   {product.coa ? (
                     <span
-                      onClick={() => product.coa && window.open(product.coa, "_blank")}
-                      onKeyDown={(e) => e.key === "Enter" && product.coa && window.open(product.coa, "_blank")}
+                      onClick={(e) => {
+                        e.preventDefault()
+                        e.stopPropagation()
+                        window.open(product.coa!, "_blank")
+                      }}
+                      onKeyDown={(e) => {
+                        if (e.key === "Enter") {
+                          e.preventDefault()
+                          e.stopPropagation()
+                          window.open(product.coa!, "_blank")
+                        }
+                      }}
                       role="link"
                       tabIndex={0}
                       className="inline-flex cursor-pointer items-center gap-1.5 rounded-lg border border-navy-mid px-3 py-2.5 text-xs font-medium text-muted-foreground transition-colors hover:border-alabaster/30 hover:text-alabaster"

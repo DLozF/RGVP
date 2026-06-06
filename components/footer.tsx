@@ -1,23 +1,31 @@
 import Link from "next/link"
+import Image from "next/image"
 import { AlertTriangle } from "lucide-react"
 
 const footerLinks = {
-  Research: ["Peptide Catalog", "Custom Synthesis", "Bulk Orders", "New Arrivals"],
-  Support: ["Shipping Info", "Returns Policy", "FAQs", "Contact Us"],
-  Legal: ["Terms of Service", "Privacy Policy", "Disclaimer", "Accessibility"],
+  Research: [
+    { label: "Peptide Catalog", href: "/#catalog" },
+    { label: "Quality Assurance", href: "/#quality" },
+    { label: "About Us", href: "/about" },
+  ],
+  Support: [
+    { label: "Contact Us", href: "mailto:support@rgvpeptides.com" },
+  ],
 }
 
 export default function Footer() {
   return (
     <footer className="relative border-t-2 border-crimson/60">
       <div className="mx-auto max-w-7xl px-6 py-16">
-        <div className="grid gap-12 md:grid-cols-4">
+        <div className="grid gap-12 md:grid-cols-3">
           {/* Brand */}
           <div className="md:col-span-1">
             <div className="flex items-center gap-4">
-              <img
+              <Image
                 src="/images/logo.png"
                 alt="RGVPeptides logo"
+                width={80}
+                height={80}
                 className="h-20 w-auto object-contain"
               />
               <div>
@@ -40,12 +48,12 @@ export default function Footer() {
               </h4>
               <ul className="flex flex-col gap-2.5">
                 {links.map((link) => (
-                  <li key={link}>
+                  <li key={link.label}>
                     <Link
-                      href="#"
+                      href={link.href}
                       className="text-sm text-muted-foreground transition-colors hover:text-alabaster"
                     >
-                      {link}
+                      {link.label}
                     </Link>
                   </li>
                 ))}

@@ -6,17 +6,22 @@ import { X } from "lucide-react"
 export default function PromoBanner() {
   const [isVisible, setIsVisible] = useState(true)
 
-  // Check if banner was previously dismissed
+  // Check if banner was previously dismissed (expires after 7 days)
   useEffect(() => {
-    const dismissed = localStorage.getItem("promo-banner-dismissed")
-    if (dismissed) {
-      setIsVisible(false)
+    const dismissedAt = localStorage.getItem("promo-banner-dismissed")
+    if (dismissedAt) {
+      const sevenDays = 7 * 24 * 60 * 60 * 1000
+      if (Date.now() - Number(dismissedAt) < sevenDays) {
+        setIsVisible(false)
+      } else {
+        localStorage.removeItem("promo-banner-dismissed")
+      }
     }
   }, [])
 
   const handleDismiss = () => {
     setIsVisible(false)
-    localStorage.setItem("promo-banner-dismissed", "true")
+    localStorage.setItem("promo-banner-dismissed", String(Date.now()))
   }
 
   if (!isVisible) return null
